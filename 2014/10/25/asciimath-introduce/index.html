@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> AsciiMath介绍及示例 · HanDong's Blog</title><meta name="description" content="AsciiMath介绍及示例 - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/sunchongsheng" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/pinggod" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">AsciiMath介绍及示例</h1><div class="post-time">Oct 25, 2014</div><div class="post-content">
+在网页显示数学公式并不是十分容易，其实在其他地方比如word中插入公式也不是容易的事。
+
+直到最近几年随着HTML5的普及和浏览器对MathML标准的支持，以及强大的MathJax( JavaScript display engine for LaTeX, MathML, and AsciiMath)的出现，才让数学公式在网页上书写和显示成为可能(使用图片不在讨论范围)。
+
+但是使用LaTeX语法或MathML语法书写数学公式依然很复杂，查普曼大学数学系计算科学学院的Peter Jipsen教授为了和学生在网络交流方便发明了AsciiMath语法。
+
+<h3>下面我们来对比一下用各种语法书写 \( x = \frac {-b\pm \sqrt {b^{2}-4ac}} {2a} \) 这个公式：</h3>
+
+[mathjax]
+LaTeX语法 <pre> x = \frac {-b\pm \sqrt {b^{2}-4ac}} {2a}</pre>
+MathML语法<pre>&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;
+  &lt;mstyle displaystyle="true"&gt;
+    &lt;mi&gt; x &lt;/mi&gt;
+    &lt;mo&gt; = &lt;/mo&gt;
+    &lt;mfrac&gt;
+      &lt;mrow&gt;
+        &lt;mo&gt; - &lt;/mo&gt;
+        &lt;mi&gt; b &lt;/mi&gt;
+        &lt;mo&gt; &#x00B1;&lt;!--plus-minus sign--&gt; &lt;/mo&gt;
+        &lt;msqrt&gt;
+          &lt;msup&gt;
+            &lt;mrow&gt;
+              &lt;mi&gt; b &lt;/mi&gt;
+            &lt;/mrow&gt;
+            &lt;mrow&gt;
+              &lt;mn&gt; 2 &lt;/mn&gt;
+            &lt;/mrow&gt;
+          &lt;/msup&gt;
+          &lt;mo&gt; - &lt;/mo&gt;
+          &lt;mn&gt; 4 &lt;/mn&gt;
+          &lt;mi&gt; a &lt;/mi&gt;
+          &lt;mi&gt; c &lt;/mi&gt;
+        &lt;/msqrt&gt;
+      &lt;/mrow&gt;
+      &lt;mrow&gt;
+        &lt;mn&gt; 2 &lt;/mn&gt;
+        &lt;mi&gt; a &lt;/mi&gt;
+      &lt;/mrow&gt;
+    &lt;/mfrac&gt;
+  &lt;/mstyle&gt;
+&lt;/math&gt;
+</pre>
+
+AsciiMath语法<pre> x = (-b +- sqrt(b^2-4ac))/(2a) </pre>
+
+以上对比可以看到AsciiMath语法最简洁直观，和高级计算器的输入显示格式类似。
+
+<h3>再来看一些常用公式的AsciiMath格式：</h3>
+<table>
+<tr><td>`x^2+y_1+z_12^34`</td> <td><pre>x^2+y_1+z_12^34</pre></td></tr>
+<tr><td>`d/dxf(x)=lim_(h->0)(f(x+h)-f(x))/h`</td> <td><pre>d/dxf(x)=lim_(h->0)(f(x+h)-f(x))/h</pre></td></tr>
+<tr><td>`f(x)=sum_(n=0)^oo(f^((n))(a))/(n!)(x-a)^n`</td> <td><pre>f(x)=sum_(n=0)^oo(f^((n))(a))/(n!)(x-a)^n</pre></td></tr>
+<tr><td>`int_0^1f(x)dx`</td> <td><pre>int_0^1f(x)dx</pre></td></tr>
+<tr><td>`[[a,b],[c,d]]((n),(k))`</td> <td><pre>[[a,b],[c,d]]((n),(k))</pre></td></tr>
+<tr><td>`x/x={(1,if x!=0),(text{undefined},if x=0):}`</td> <td><pre>x/x={(1,if x!=0),(text{undefined},if x=0):}</pre></td></tr>
+<tr><td>`sqrt sqrt root3x`</td> <td><pre>sqrt sqrt root3x</pre></td></tr>
+<tr><td>`<< a,b >> and {:(x,y),(u,v):}`</td> <td><pre><< a,b >> and {:(x,y),(u,v):}</pre></td></tr>
+<tr><td>`(a,b]={x in RR | a < x <= b}`<="" td=""> <td><pre>(a,b]={x in RR | a < x <= b}<="" pre=""></=></pre></td></=></td></tr>
+<tr><td>`hat(ab) bar(xy) ulA vec v dotx ddot y`</td> <td><pre>hat(ab) bar(xy) ulA vec v dotx ddot y</pre></td></tr>
+</table>
+
+<p>
+为了输入方便，我在github上做了个在线ASCIIMath编辑器，初始版本非常简陋，欢迎试用 <a href="http://likev.github.io/ASCIIMath/" title="ASCIIMath在线编辑器" target="_blank">http://likev.github.io/ASCIIMath/</a>
+
+完整语法详见：<a href="http://www1.chapman.edu/~jipsen/mathml/asciimathsyntax.html" title="asciimathsyntax.html" target="_blank">http://www1.chapman.edu/~jipsen/mathml/asciimathsyntax.html</a>
+</p></div></article></div></section><footer><div class="paginator"><a href="/2014/11/22/e6-94-af-e6-8c-81-e9-80-9a-e9-85-8d-e7-ac-a6-e5-92-8c-e6-ad-a3-e5-88-99-e8-a1-a8-e8-be-be-e5-bc-8f-e7-9a-84hosts-e6-96-87-e4-bb-b6-e6-9c-ac-e5-9c-b0dns-e7-bc-93-e5-ad-98-e5-8f-8a-e4-bb-a3-e7-90-86/" class="prev">PRVE</a><a href="/2014/10/23/weather-forcast-equations/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2016 <a href="http://blog.tianqi.at">John Doe</a>, unless otherwise noted.</p></div></footer><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "//hm.baidu.com/hm.js?a36e15d9e2adec9a21fcdd9f686b1ed2";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>
