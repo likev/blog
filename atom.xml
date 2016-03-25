@@ -855,13 +855,13 @@ bzip2
       <category term="C++" scheme="http://blog.tianqi.at/categories/C/"/>
     
     
+      <category term="类库" scheme="http://blog.tianqi.at/tags/%E7%B1%BB%E5%BA%93/"/>
+    
       <category term="poco" scheme="http://blog.tianqi.at/tags/poco/"/>
     
       <category term="手册" scheme="http://blog.tianqi.at/tags/%E6%89%8B%E5%86%8C/"/>
     
       <category term="文档" scheme="http://blog.tianqi.at/tags/%E6%96%87%E6%A1%A3/"/>
-    
-      <category term="类库" scheme="http://blog.tianqi.at/tags/%E7%B1%BB%E5%BA%93/"/>
     
   </entry>
   
@@ -4433,8 +4433,8 @@ var scaleImage = function(imageData, newImageData){
   
   <entry>
     <title>SVN命令详解</title>
-    <link href="http://blog.tianqi.at/2012/09/12/svn-e5-91-bd-e4-bb-a4-e8-af-a6-e8-a7-a3/"/>
-    <id>http://blog.tianqi.at/2012/09/12/svn-e5-91-bd-e4-bb-a4-e8-af-a6-e8-a7-a3/</id>
+    <link href="http://blog.tianqi.at/2012/09/12/svn-command-introduce/"/>
+    <id>http://blog.tianqi.at/2012/09/12/svn-command-introduce/</id>
     <published>2012-09-12T01:21:31.000Z</published>
     <updated>2016-03-25T09:16:34.000Z</updated>
     
