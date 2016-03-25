@@ -1,125 +1,63 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> SVN命令详解 · HanDong's Blog</title><meta name="description" content="SVN命令详解 - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://twitter.com/likev" target="_blank" class="nav-list-link">TWITTER</a></li><li class="nav-list-item"><a href="https://github.com/likev" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">SVN命令详解</h1><div class="post-time">Sep 12, 2012</div><div class="post-content"><ol>
-<li>将文件checkout到本地目录<pre lang="svn">
-svn checkout path（path是服务器上的目录）
-例如：svn checkout svn://192.168.1.1/pro/domain
-简写：svn co </pre></li>
-<li>往版本库中添加新的文件<pre lang="svn">
-svn add file (此时尚未提交到服务器版本库中)
-例如：svn add test.php(添加test.php)
-svn add *.php(添加当前目录下所有的php文件) </pre></li>
-<li>将改动的文件提交到版本库<pre lang="svn">
-svn commit -m "LogMessage" [-N] [--no-unlock] PATH
-(如果选择了保持锁，就使用–no-unlock开关)
-例如：svn commit -m "add test file for my test" test.php
-简写：svn ci
-</pre></li>
-<li>加锁/解锁<pre lang="svn">
-svn lock -m "LockMessage" [--force] PATH
-例如：svn lock -m "lock test file" test.php
-svn unlock PATH
-</pre></li>
-<li>更新到某个版本<pre lang="svn">
-svn update -r m path
-例如： svn update如果后面没有目录，默认将当前目录以
-及子目录下的所有文件都更新到最新版本。
-svn update -r 200 test.php(将版本库中的文件test.php还原到版本200)
-svn update test.php(更新，于版本库同步。如果在提交的时候提示过期的话，
-是因为冲突，需要先update，修改文件，然后清除svn resolved，最后再提交commit)
-简写：svn up
-</pre></li>
-<li>查看文件或者目录状态<pre lang="svn">
-svn status path...（目录下的文件和子目录的状态，正常状态不显示）
-【?：不在svn的控制中；M：内容被修改；C：发生冲突；
-A：预定加入到版本库；K：被锁定】
-2）svn status -v path(显示文件和子目录状态)
-第一列保持相同，第二列显示工作版本号，第三和第四列显示
-最后一次修改的版本号和修改人。
-注：svn status、svn diff和 svn revert这三条命令在
-没有网络的情况下也可以执行的，
-原因是svn在本地的.svn中保留了本地版本的原始拷贝。
-简写：svn st
-</pre></li>
-<li>删除文件<pre lang="svn">
-svn delete path -m "delete test fle"
-例如：svn delete svn://192.168.1.1/pro/test.php -m "delete file"
-或者直接svn delete test.php 然后再svn ci -m "delete test file"(推荐)
-简写：svn (del, remove, rm)
-</pre></li>
-<li>移动文件或者目录或文件更名<pre lang="svn">
-svn move -m "move test fle"
-例如：svn move -m "move test file" a.php  b.php 
-svn move -m "move test file" address admin/address 
-把当前目录下得address目录移动到当前目录下的admin/address下
-</pre></li>
-<li>查看日志<pre lang="svn">
-svn log path
-例如：svn log test.php 显示这个文件的所有修改记录，及其版本号的变化
-</pre></li>
-<li>查看文件详细信息<pre lang="svn">
-svn info path
-例如：svn info test.php
-</pre></li>
-<li>比较差异<pre lang="svn">
-svn diff path(将修改的文件与基础版本比较)
-例如：svn diff test.php
-svn diff -r m:n path(对版本m和版本n比较差异)
-例如：svn diff -r 200:201 test.php
-简写：svn di
-</pre></li>
-<li>将两个版本之间的差异合并到当前文件<pre lang="svn">
-svn merge -r m:n path
-例如：svn merge -r 200:205 test.php（将版本200与205之间的差异
-合并到当前文件，但是一般都会产生冲突，需要处理一下）
-</pre></li>
-<li>SVN 帮助<pre lang="svn">
-svn help
-svn help ci
-</pre></li>
-<li>恢复本地修改<pre lang="svn">
-svn revert: 恢复原始未改变的工作副本文件 (恢复大部份的本地修改)。revert:
-用法: revert PATH…
-注意: 本子命令不会存取网络，并且会解除冲突的状况。但是它不会恢复
-被删除的目录
-</pre></li>
-<li>解决冲突<pre lang="svn">
-svn resolved: 移除工作副本的目录或文件的“冲突”状态。
-用法: resolved PATH…
-注意: 本子命令不会依语法来解决冲突或是移除冲突标记；它只是移除冲突的
-相关文件，然后让 PATH 可以再次提交。
-</pre></li>
-<li>创建纳入版本控制下的新目录<pre lang="svn">
-svn mkdir: 创建纳入版本控制下的新目录。
-用法: 1、mkdir PATH…
-2、mkdir URL…
-创建版本控制的目录。
-1、每一个以工作副本 PATH 指定的目录，都会创建在本地端，并且加入新增
-调度，以待下一次的提交。
-2、每个以URL指定的目录，都会透过立即提交于仓库中创建。
-在这两个情况下，所有的中间目录都必须事先存在。
-</pre></li>
-<li>版本库下的文件和目录列表<pre lang="svn">
-svn list path
-显示path目录下的所有属于版本库的文件和目录
-简写：svn ls
-</pre></li>
-<li>代码库URL变更<pre lang="svn">
-svn switch (sw): 更新工作副本至不同的URL。
-用法: 1、switch URL [PATH]
-2、switch –relocate FROM TO [PATH...] 
-1、更新你的工作副本，映射到一个新的URL，其行为跟“svn update”很像，也会将
-服务器上文件与本地文件合并。这是将工作副本对应到同一仓库中某个分支或者标记的
-方法。
-2、改写工作副本的URL元数据，以反映单纯的URL上的改变。当仓库的根URL变动
-(比如方案名或是主机名称变动)，但是工作副本仍旧对映到同一仓库的同一目录时使用
-这个命令更新工作副本与仓库的对应关系。
-</pre></li>
-<li>输出指定文件或URL的内容。<pre lang="svn">
-svn cat 目标[@版本]…如果指定了版本，将从指定的版本开始查找。
-svn cat -r PREV filename > filename 
-(PREV 是上一版本,也可以写具体版本号,这样输出结果是可以提交的)
-</pre>
-
+<li><p>将文件checkout到本地目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">svn checkout path（path是服务器上的目录）</span><br><span class="line">例如：svn checkout svn://192.168.1.1/pro/domain</span><br><span class="line">简写：svn co</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>往版本库中添加新的文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">svn add file (此时尚未提交到服务器版本库中)</span><br><span class="line">例如：svn add test.php(添加test.php)</span><br><span class="line">svn add *.php(添加当前目录下所有的php文件)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将改动的文件提交到版本库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">svn commit -m &quot;LogMessage&quot; [-N] [--no-unlock] PATH</span><br><span class="line">(如果选择了保持锁，就使用–no-unlock开关)</span><br><span class="line">例如：svn commit -m &quot;add test file for my test&quot; test.php</span><br><span class="line">简写：svn ci</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加锁/解锁</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">svn lock -m &quot;LockMessage&quot; [--force] PATH</span><br><span class="line">例如：svn lock -m &quot;lock test file&quot; test.php</span><br><span class="line">svn unlock PATH</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新到某个版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">svn update -r m path</span><br><span class="line">例如： svn update如果后面没有目录，默认将当前目录以</span><br><span class="line">及子目录下的所有文件都更新到最新版本。</span><br><span class="line">svn update -r 200 test.php(将版本库中的文件test.php还原到版本200)</span><br><span class="line">svn update test.php(更新，于版本库同步。如果在提交的时候提示过期的话，</span><br><span class="line">是因为冲突，需要先update，修改文件，然后清除svn resolved，最后再提交commit)</span><br><span class="line">简写：svn up</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看文件或者目录状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">svn status path...（目录下的文件和子目录的状态，正常状态不显示）</span><br><span class="line">【?：不在svn的控制中；M：内容被修改；C：发生冲突；</span><br><span class="line">A：预定加入到版本库；K：被锁定】</span><br><span class="line">2）svn status -v path(显示文件和子目录状态)</span><br><span class="line">第一列保持相同，第二列显示工作版本号，第三和第四列显示</span><br><span class="line">最后一次修改的版本号和修改人。</span><br><span class="line">注：svn status、svn diff和 svn revert这三条命令在</span><br><span class="line">没有网络的情况下也可以执行的，</span><br><span class="line">原因是svn在本地的.svn中保留了本地版本的原始拷贝。</span><br><span class="line">简写：svn st</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">svn delete path -m &quot;delete test fle&quot;</span><br><span class="line">例如：svn delete svn://192.168.1.1/pro/test.php -m &quot;delete file&quot;</span><br><span class="line">或者直接svn delete test.php 然后再svn ci -m &quot;delete test file&quot;(推荐)</span><br><span class="line">简写：svn (del, remove, rm)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>移动文件或者目录或文件更名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">svn move -m &quot;move test fle&quot;</span><br><span class="line">例如：svn move -m &quot;move test file&quot; a.php  b.php </span><br><span class="line">svn move -m &quot;move test file&quot; address admin/address </span><br><span class="line">把当前目录下得address目录移动到当前目录下的admin/address下</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看日志</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svn log path</span><br><span class="line">例如：svn log test.php 显示这个文件的所有修改记录，及其版本号的变化</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看文件详细信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svn info path</span><br><span class="line">例如：svn info test.php</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>比较差异</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">svn diff path(将修改的文件与基础版本比较)</span><br><span class="line">例如：svn diff test.php</span><br><span class="line">svn diff -r m:n path(对版本m和版本n比较差异)</span><br><span class="line">例如：svn diff -r 200:201 test.php</span><br><span class="line">简写：svn di</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将两个版本之间的差异合并到当前文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">svn merge -r m:n path</span><br><span class="line">例如：svn merge -r 200:205 test.php（将版本200与205之间的差异</span><br><span class="line">合并到当前文件，但是一般都会产生冲突，需要处理一下）</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>SVN 帮助</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">svn help</span><br><span class="line">svn help ci</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>恢复本地修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">svn revert: 恢复原始未改变的工作副本文件 (恢复大部份的本地修改)。revert:</span><br><span class="line">用法: revert PATH…</span><br><span class="line">注意: 本子命令不会存取网络，并且会解除冲突的状况。但是它不会恢复</span><br><span class="line">被删除的目录</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解决冲突</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">svn resolved: 移除工作副本的目录或文件的“冲突”状态。</span><br><span class="line">用法: resolved PATH…</span><br><span class="line">注意: 本子命令不会依语法来解决冲突或是移除冲突标记；它只是移除冲突的</span><br><span class="line">相关文件，然后让 PATH 可以再次提交。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建纳入版本控制下的新目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">svn mkdir: 创建纳入版本控制下的新目录。</span><br><span class="line">用法: 1、mkdir PATH…</span><br><span class="line">2、mkdir URL…</span><br><span class="line">创建版本控制的目录。</span><br><span class="line">1、每一个以工作副本 PATH 指定的目录，都会创建在本地端，并且加入新增</span><br><span class="line">调度，以待下一次的提交。</span><br><span class="line">2、每个以URL指定的目录，都会透过立即提交于仓库中创建。</span><br><span class="line">在这两个情况下，所有的中间目录都必须事先存在。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>版本库下的文件和目录列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">svn list path</span><br><span class="line">显示path目录下的所有属于版本库的文件和目录</span><br><span class="line">简写：svn ls</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>代码库URL变更</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">svn switch (sw): 更新工作副本至不同的URL。</span><br><span class="line">用法: 1、switch URL [PATH]</span><br><span class="line">2、switch –relocate FROM TO [PATH...] </span><br><span class="line">1、更新你的工作副本，映射到一个新的URL，其行为跟“svn update”很像，也会将</span><br><span class="line">服务器上文件与本地文件合并。这是将工作副本对应到同一仓库中某个分支或者标记的</span><br><span class="line">方法。</span><br><span class="line">2、改写工作副本的URL元数据，以反映单纯的URL上的改变。当仓库的根URL变动</span><br><span class="line">(比如方案名或是主机名称变动)，但是工作副本仍旧对映到同一仓库的同一目录时使用</span><br><span class="line">这个命令更新工作副本与仓库的对应关系。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输出指定文件或URL的内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">svn cat 目标[@版本]…如果指定了版本，将从指定的版本开始查找。</span><br><span class="line">svn cat -r PREV filename &gt; filename </span><br><span class="line">(PREV 是上一版本,也可以写具体版本号,这样输出结果是可以提交的)</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
+<blockquote>
 <p>[原文链接]：<a href="http://blog.sina.com.cn/s/blog_76cd6de80100wml3.html" title="打开链接" target="_blank" rel="external">Linux学习篇-SVN命令详解</a><br>[官方中文文档]：<a href="http://www.subversion.org.cn/svnbook/1.4/index.html" title="打开链接" target="_blank" rel="external">使用Subversion进行版本控制</a></p>
+</blockquote>
 </div></article></div></section><footer><div class="paginator"><a href="/2012/09/14/e5-88-a9-e7-94-a8canvas-e8-bf-9b-e8-a1-8c-e6-9c-80-e5-a4-a7-e9-82-bb-e5-9f-9f-e6-b3-95-e5-9b-be-e5-83-8f-e6-94-be-e5-a4-a7/" class="prev">PRVE</a><a href="/2012/09/11/e4-bd-bf-e7-94-a8-html5-websocket-e6-9e-84-e5-bb-ba-e5-ae-9e-e6-97-b6-web-e5-ba-94-e7-94-a8/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2016 <a href="http://blog.tianqi.at">John Doe</a>, unless otherwise noted.</p></div></footer><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>

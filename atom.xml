@@ -4436,141 +4436,77 @@ var scaleImage = function(imageData, newImageData){
     <link href="http://blog.tianqi.at/2012/09/12/svn-e5-91-bd-e4-bb-a4-e8-af-a6-e8-a7-a3/"/>
     <id>http://blog.tianqi.at/2012/09/12/svn-e5-91-bd-e4-bb-a4-e8-af-a6-e8-a7-a3/</id>
     <published>2012-09-12T01:21:31.000Z</published>
-    <updated>2016-03-24T08:00:30.000Z</updated>
+    <updated>2016-03-25T09:16:34.000Z</updated>
     
     <content type="html">&lt;ol&gt;
-&lt;li&gt;将文件checkout到本地目录&lt;pre lang=&quot;svn&quot;&gt;
-svn checkout path（path是服务器上的目录）
-例如：svn checkout svn://192.168.1.1/pro/domain
-简写：svn co &lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;往版本库中添加新的文件&lt;pre lang=&quot;svn&quot;&gt;
-svn add file (此时尚未提交到服务器版本库中)
-例如：svn add test.php(添加test.php)
-svn add *.php(添加当前目录下所有的php文件) &lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;将改动的文件提交到版本库&lt;pre lang=&quot;svn&quot;&gt;
-svn commit -m &quot;LogMessage&quot; [-N] [--no-unlock] PATH
-(如果选择了保持锁，就使用–no-unlock开关)
-例如：svn commit -m &quot;add test file for my test&quot; test.php
-简写：svn ci
-&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;加锁/解锁&lt;pre lang=&quot;svn&quot;&gt;
-svn lock -m &quot;LockMessage&quot; [--force] PATH
-例如：svn lock -m &quot;lock test file&quot; test.php
-svn unlock PATH
-&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;更新到某个版本&lt;pre lang=&quot;svn&quot;&gt;
-svn update -r m path
-例如： svn update如果后面没有目录，默认将当前目录以
-及子目录下的所有文件都更新到最新版本。
-svn update -r 200 test.php(将版本库中的文件test.php还原到版本200)
-svn update test.php(更新，于版本库同步。如果在提交的时候提示过期的话，
-是因为冲突，需要先update，修改文件，然后清除svn resolved，最后再提交commit)
-简写：svn up
-&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;查看文件或者目录状态&lt;pre lang=&quot;svn&quot;&gt;
-svn status path...（目录下的文件和子目录的状态，正常状态不显示）
-【?：不在svn的控制中；M：内容被修改；C：发生冲突；
-A：预定加入到版本库；K：被锁定】
-2）svn status -v path(显示文件和子目录状态)
-第一列保持相同，第二列显示工作版本号，第三和第四列显示
-最后一次修改的版本号和修改人。
-注：svn status、svn diff和 svn revert这三条命令在
-没有网络的情况下也可以执行的，
-原因是svn在本地的.svn中保留了本地版本的原始拷贝。
-简写：svn st
-&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;删除文件&lt;pre lang=&quot;svn&quot;&gt;
-svn delete path -m &quot;delete test fle&quot;
-例如：svn delete svn://192.168.1.1/pro/test.php -m &quot;delete file&quot;
-或者直接svn delete test.php 然后再svn ci -m &quot;delete test file&quot;(推荐)
-简写：svn (del, remove, rm)
-&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;移动文件或者目录或文件更名&lt;pre lang=&quot;svn&quot;&gt;
-svn move -m &quot;move test fle&quot;
-例如：svn move -m &quot;move test file&quot; a.php  b.php 
-svn move -m &quot;move test file&quot; address admin/address 
-把当前目录下得address目录移动到当前目录下的admin/address下
-&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;查看日志&lt;pre lang=&quot;svn&quot;&gt;
-svn log path
-例如：svn log test.php 显示这个文件的所有修改记录，及其版本号的变化
-&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;查看文件详细信息&lt;pre lang=&quot;svn&quot;&gt;
-svn info path
-例如：svn info test.php
-&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;比较差异&lt;pre lang=&quot;svn&quot;&gt;
-svn diff path(将修改的文件与基础版本比较)
-例如：svn diff test.php
-svn diff -r m:n path(对版本m和版本n比较差异)
-例如：svn diff -r 200:201 test.php
-简写：svn di
-&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;将两个版本之间的差异合并到当前文件&lt;pre lang=&quot;svn&quot;&gt;
-svn merge -r m:n path
-例如：svn merge -r 200:205 test.php（将版本200与205之间的差异
-合并到当前文件，但是一般都会产生冲突，需要处理一下）
-&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;SVN 帮助&lt;pre lang=&quot;svn&quot;&gt;
-svn help
-svn help ci
-&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;恢复本地修改&lt;pre lang=&quot;svn&quot;&gt;
-svn revert: 恢复原始未改变的工作副本文件 (恢复大部份的本地修改)。revert:
-用法: revert PATH…
-注意: 本子命令不会存取网络，并且会解除冲突的状况。但是它不会恢复
-被删除的目录
-&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;解决冲突&lt;pre lang=&quot;svn&quot;&gt;
-svn resolved: 移除工作副本的目录或文件的“冲突”状态。
-用法: resolved PATH…
-注意: 本子命令不会依语法来解决冲突或是移除冲突标记；它只是移除冲突的
-相关文件，然后让 PATH 可以再次提交。
-&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;创建纳入版本控制下的新目录&lt;pre lang=&quot;svn&quot;&gt;
-svn mkdir: 创建纳入版本控制下的新目录。
-用法: 1、mkdir PATH…
-2、mkdir URL…
-创建版本控制的目录。
-1、每一个以工作副本 PATH 指定的目录，都会创建在本地端，并且加入新增
-调度，以待下一次的提交。
-2、每个以URL指定的目录，都会透过立即提交于仓库中创建。
-在这两个情况下，所有的中间目录都必须事先存在。
-&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;版本库下的文件和目录列表&lt;pre lang=&quot;svn&quot;&gt;
-svn list path
-显示path目录下的所有属于版本库的文件和目录
-简写：svn ls
-&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;代码库URL变更&lt;pre lang=&quot;svn&quot;&gt;
-svn switch (sw): 更新工作副本至不同的URL。
-用法: 1、switch URL [PATH]
-2、switch –relocate FROM TO [PATH...] 
-1、更新你的工作副本，映射到一个新的URL，其行为跟“svn update”很像，也会将
-服务器上文件与本地文件合并。这是将工作副本对应到同一仓库中某个分支或者标记的
-方法。
-2、改写工作副本的URL元数据，以反映单纯的URL上的改变。当仓库的根URL变动
-(比如方案名或是主机名称变动)，但是工作副本仍旧对映到同一仓库的同一目录时使用
-这个命令更新工作副本与仓库的对应关系。
-&lt;/pre&gt;&lt;/li&gt;
-&lt;li&gt;输出指定文件或URL的内容。&lt;pre lang=&quot;svn&quot;&gt;
-svn cat 目标[@版本]…如果指定了版本，将从指定的版本开始查找。
-svn cat -r PREV filename &gt; filename 
-(PREV 是上一版本,也可以写具体版本号,这样输出结果是可以提交的)
-&lt;/pre&gt;
-
+&lt;li&gt;&lt;p&gt;将文件checkout到本地目录&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;svn checkout path（path是服务器上的目录）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;例如：svn checkout svn://192.168.1.1/pro/domain&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;简写：svn co&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;往版本库中添加新的文件&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;svn add file (此时尚未提交到服务器版本库中)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;例如：svn add test.php(添加test.php)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;svn add *.php(添加当前目录下所有的php文件)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;将改动的文件提交到版本库&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;svn commit -m &amp;quot;LogMessage&amp;quot; [-N] [--no-unlock] PATH&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;(如果选择了保持锁，就使用–no-unlock开关)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;例如：svn commit -m &amp;quot;add test file for my test&amp;quot; test.php&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;简写：svn ci&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;加锁/解锁&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;svn lock -m &amp;quot;LockMessage&amp;quot; [--force] PATH&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;例如：svn lock -m &amp;quot;lock test file&amp;quot; test.php&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;svn unlock PATH&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;更新到某个版本&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;svn update -r m path&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;例如： svn update如果后面没有目录，默认将当前目录以&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;及子目录下的所有文件都更新到最新版本。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;svn update -r 200 test.php(将版本库中的文件test.php还原到版本200)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;svn update test.php(更新，于版本库同步。如果在提交的时候提示过期的话，&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;是因为冲突，需要先update，修改文件，然后清除svn resolved，最后再提交commit)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;简写：svn up&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;查看文件或者目录状态&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;svn status path...（目录下的文件和子目录的状态，正常状态不显示）&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;【?：不在svn的控制中；M：内容被修改；C：发生冲突；&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;A：预定加入到版本库；K：被锁定】&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2）svn status -v path(显示文件和子目录状态)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;第一列保持相同，第二列显示工作版本号，第三和第四列显示&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;最后一次修改的版本号和修改人。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;注：svn status、svn diff和 svn revert这三条命令在&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;没有网络的情况下也可以执行的，&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;原因是svn在本地的.svn中保留了本地版本的原始拷贝。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;简写：svn st&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;删除文件&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;svn delete path -m &amp;quot;delete test fle&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;例如：svn delete svn://192.168.1.1/pro/test.php -m &amp;quot;delete file&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;或者直接svn delete test.php 然后再svn ci -m &amp;quot;delete test file&amp;quot;(推荐)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;简写：svn (del, remove, rm)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;移动文件或者目录或文件更名&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;svn move -m &amp;quot;move test fle&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;例如：svn move -m &amp;quot;move test file&amp;quot; a.php  b.php &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;svn move -m &amp;quot;move test file&amp;quot; address admin/address &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;把当前目录下得address目录移动到当前目录下的admin/address下&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;查看日志&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;svn log path&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;例如：svn log test.php 显示这个文件的所有修改记录，及其版本号的变化&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;查看文件详细信息&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;svn info path&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;例如：svn info test.php&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;比较差异&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;svn diff path(将修改的文件与基础版本比较)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;例如：svn diff test.php&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;svn diff -r m:n path(对版本m和版本n比较差异)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;例如：svn diff -r 200:201 test.php&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;简写：svn di&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;将两个版本之间的差异合并到当前文件&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;svn merge -r m:n path&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;例如：svn merge -r 200:205 test.php（将版本200与205之间的差异&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;合并到当前文件，但是一般都会产生冲突，需要处理一下）&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;SVN 帮助&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;svn help&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;svn help ci&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;恢复本地修改&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;svn revert: 恢复原始未改变的工作副本文件 (恢复大部份的本地修改)。revert:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;用法: revert PATH…&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;注意: 本子命令不会存取网络，并且会解除冲突的状况。但是它不会恢复&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;被删除的目录&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;解决冲突&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;svn resolved: 移除工作副本的目录或文件的“冲突”状态。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;用法: resolved PATH…&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;注意: 本子命令不会依语法来解决冲突或是移除冲突标记；它只是移除冲突的&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;相关文件，然后让 PATH 可以再次提交。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;创建纳入版本控制下的新目录&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;svn mkdir: 创建纳入版本控制下的新目录。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;用法: 1、mkdir PATH…&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2、mkdir URL…&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;创建版本控制的目录。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;1、每一个以工作副本 PATH 指定的目录，都会创建在本地端，并且加入新增&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;调度，以待下一次的提交。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2、每个以URL指定的目录，都会透过立即提交于仓库中创建。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;在这两个情况下，所有的中间目录都必须事先存在。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;版本库下的文件和目录列表&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;svn list path&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;显示path目录下的所有属于版本库的文件和目录&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;简写：svn ls&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;代码库URL变更&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;svn switch (sw): 更新工作副本至不同的URL。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;用法: 1、switch URL [PATH]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2、switch –relocate FROM TO [PATH...] &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;1、更新你的工作副本，映射到一个新的URL，其行为跟“svn update”很像，也会将&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;服务器上文件与本地文件合并。这是将工作副本对应到同一仓库中某个分支或者标记的&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;方法。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2、改写工作副本的URL元数据，以反映单纯的URL上的改变。当仓库的根URL变动&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;(比如方案名或是主机名称变动)，但是工作副本仍旧对映到同一仓库的同一目录时使用&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;这个命令更新工作副本与仓库的对应关系。&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;输出指定文件或URL的内容。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;svn cat 目标[@版本]…如果指定了版本，将从指定的版本开始查找。&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;svn cat -r PREV filename &amp;gt; filename &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;(PREV 是上一版本,也可以写具体版本号,这样输出结果是可以提交的)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;blockquote&gt;
 &lt;p&gt;[原文链接]：&lt;a href=&quot;http://blog.sina.com.cn/s/blog_76cd6de80100wml3.html&quot; title=&quot;打开链接&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Linux学习篇-SVN命令详解&lt;/a&gt;&lt;br&gt;[官方中文文档]：&lt;a href=&quot;http://www.subversion.org.cn/svnbook/1.4/index.html&quot; title=&quot;打开链接&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;使用Subversion进行版本控制&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 </content>
     
     <summary type="html">
     
       &lt;ol&gt;
-&lt;li&gt;将文件checkout到本地目录&lt;pre lang=&quot;svn&quot;&gt;
-svn checkout path（path是服务器上的目录）
-例如：svn checkout svn://192.168.1.1/pro/domain
-简写：svn co &lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;将文件checkout到本地目录&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span cla
     
     </summary>
     
