@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.tianqi.at/2016/03/24/Hexo-Quick-Start/</loc>
+    
+    <lastmod>2016-03-26T16:38:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.tianqi.at/2011/03/02/dom-struct-and-html-elements/</loc>
     
     <lastmod>2016-03-25T10:31:46.000Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>http://blog.tianqi.at/2014/10/23/weather-forcast-equations/</loc>
     
     <lastmod>2016-03-24T12:40:14.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.tianqi.at/2016/03/24/Hexo-Quick-Start/</loc>
-    
-    <lastmod>2016-03-24T10:55:02.000Z</lastmod>
     
   </url>
   

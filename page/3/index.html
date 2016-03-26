@@ -10,9 +10,9 @@ HANDLE WINAPI CreateThread(
   __in       LPTHREAD_START_ROUTINE lpStartAdd</div><a href="/2012/03/26/windows-e4-b8-ad-e7-9a-84-e5-a4-9a-e7-ba-bf-e7-a8-8b-e5-a4-84-e7-90-86/" class="read-more">...阅读全文</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2012/03/26/e5-af-b9window-e7-a8-8b-e5-ba-8f-e6-b6-88-e6-81-af-e5-be-aa-e7-8e-af-e7-9a-84-e7-90-86-e8-a7-a3/" class="post-title-link">对Window程序消息循环的理解</a></h2><div class="post-time">Mar 26, 2012</div><div class="post-content">
 1.每个(创建窗口的)线程有一个消息队列，程序用下面的循环接收、转换消息，并将消息分发到合适的窗口处理程序：
 
-    MSG msg = { };    while (GetMessage(&amp;amp;msg, NULL, 0, 0))    {        TranslateMessage(&amp;amp;msg);        DispatchMessage(&amp;amp;msg);    }
+    MSG msg = { };    while (GetMessage(&amp;msg, NULL, 0, 0))    {        TranslateMessage(&amp;msg);        DispatchMessage(&amp;msg);    }
 
-</div><a href="/2012/03/26/e5-af-b9window-e7-a8-8b-e5-ba-8f-e6-b6-88-e6-81-af-e5-be-aa-e7-8e-af-e7-9a-84-e7-90-86-e8-a7-a3/" class="read-more">...阅读全文</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2012/03/25/cpp-string-1/" class="post-title-link">C++ 字符串字面值的使用</a></h2><div class="post-time">Mar 25, 2012</div><div class="post-content">以下语句将输出helloworld1234//code1	char *a = &quot;helloworld&quot;;	std::cout&amp;lt;&amp;lt;a&amp;lt;&amp;lt;std::endl;
+</div><a href="/2012/03/26/e5-af-b9window-e7-a8-8b-e5-ba-8f-e6-b6-88-e6-81-af-e5-be-aa-e7-8e-af-e7-9a-84-e7-90-86-e8-a7-a3/" class="read-more">...阅读全文</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2012/03/25/cpp-string-1/" class="post-title-link">C++ 字符串字面值的使用</a></h2><div class="post-time">Mar 25, 2012</div><div class="post-content">以下语句将输出helloworld1234//code1	char *a = "helloworld";	std::cout&lt;&lt;a&lt;&lt;std::endl;
 上面的a实际上是指向字符串字面值常量的起始地址，如果对a指向的字符进行赋值将会出现错误(比如 *(a+1) = ‘E’ 将出错)。实际上应该像下面这样定义指针a(上面那样定义也能编译通过，但不推荐):12//code2	</div><a href="/2012/03/25/cpp-string-1/" class="read-more">...阅读全文</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2012/03/13/boost-e4-b8-ad-e7-9a-84regex-e7-b1-bb-e5-ba-93-e5-b0-86-e9-83-a8-e5-88-86-e4-b8-ad-e6-96-87-e8-af-86-e5-88-ab-e4-b8-ba-e7-a9-ba-e7-99-bd-e5-ad-97-e7-ac-a6-e7-9a-84-e9-97-ae-e9-a2-98-e5-8e-9f-e5-9b-a0/" class="post-title-link">Boost中的Regex类库将部分中文识别为空白字符的问题原因及解决办法</a></h2><div class="post-time">Mar 13, 2012</div><div class="post-content">问题描述：使用字符类\s匹配一个字符串中的空白字符时，部分中文字符也将被识别为空白。
 原因：查看Boost的Regex源代码可以发现，Regex使用cpp_regex_traits类(在文件 boost/regex/v4/cpp_regex_traits.hpp 中定义)来处理字符类
 
@@ -31,5 +31,5 @@ HANDLE WINAPI CreateThread(
 
 //获取cpu的空闲百分比
 function get_cpufree(){
-    $cmd =  &quot;top -n 1 -b -d 0.1 | grep 'Cpu'&quot;;//调用top命令和grep命令
+    $cmd =  "top -n 1 -b -d 0.1 | grep 'Cpu'";//调用top命令和grep命令
     $lastline = exec</div><a href="/2012/02/13/php-e4-bb-a3-e7-a0-81-e8-8e-b7-e5-8f-96-e5-bd-93-e5-89-8d-e7-b3-bb-e7-bb-9f-e7-9a-84cpu-e5-92-8c-e5-86-85-e5-ad-98-e7-9a-84-e7-a9-ba-e9-97-b2-e7-99-be-e5-88-86-e6-af-94/" class="read-more">...阅读全文</a></article></li></ul></section><footer><div class="paginator"><a href="/page/2/" class="prev">上一页</a><a href="/page/4/" class="next">下一页</a></div><div class="copyright"><p>© 2015 - 2016 <a href="http://blog.tianqi.at">John Doe</a>, unless otherwise noted.</p></div></footer><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>
