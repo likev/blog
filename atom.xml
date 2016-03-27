@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.tianqi.at/"/>
-  <updated>2016-03-26T16:38:34.000Z</updated>
+  <updated>2016-03-27T11:08:56.000Z</updated>
   <id>http://blog.tianqi.at/</id>
   
   <author>
@@ -16,28 +16,45 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hexo Quick Start</title>
-    <link href="http://blog.tianqi.at/2016/03/24/Hexo-Quick-Start/"/>
-    <id>http://blog.tianqi.at/2016/03/24/Hexo-Quick-Start/</id>
-    <published>2016-03-24T10:56:25.830Z</published>
-    <updated>2016-03-26T16:38:34.000Z</updated>
+    <title>使用 Hexo 在 GitHub 建立个人博客</title>
+    <link href="http://blog.tianqi.at/2016/03/27/make-free-blog-site-use-Hexo-and-Github/"/>
+    <id>http://blog.tianqi.at/2016/03/27/make-free-blog-site-use-Hexo-and-Github/</id>
+    <published>2016-03-27T09:50:48.000Z</published>
+    <updated>2016-03-27T11:08:56.000Z</updated>
     
-    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    <content type="html">&lt;p&gt;GitHub Pages 提供了免费的空间让大家可以做静态站点，还能够绑定自己的域名，这么好的东西一定要试一下了。&lt;/p&gt;
+&lt;p&gt;Hexo 是一个基于 Node.js 的静态博客生成程序，你用 Markdown 语法写一些文章，然后它帮你转化为一个博客网站。安装 Hexo 前需先安装 Node.js 和 Git 。&lt;br&gt;具体的安装说明见官方文档。下面是发布文章的方法。&lt;/p&gt;
+&lt;h3 id=&quot;一-新建文章&quot;&gt;&lt;a href=&quot;#一-新建文章&quot; class=&quot;headerlink&quot; title=&quot;一. 新建文章&quot;&gt;&lt;/a&gt;一. 新建文章&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;或者手动在 &lt;code&gt;source/_posts&lt;/code&gt; 目录下新建一个 Markdown 文件开始写新文章。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;二-运行本地服务器-实时预览新文章&quot;&gt;&lt;a href=&quot;#二-运行本地服务器-实时预览新文章&quot; class=&quot;headerlink&quot; title=&quot;二. 运行本地服务器 实时预览新文章&quot;&gt;&lt;/a&gt;二. 运行本地服务器 实时预览新文章&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;当然你可以不预览直接进行下述步骤&lt;/p&gt;
+&lt;h3 id=&quot;三-生成静态文件&quot;&gt;&lt;a href=&quot;#三-生成静态文件&quot; class=&quot;headerlink&quot; title=&quot;三. 生成静态文件&quot;&gt;&lt;/a&gt;三. 生成静态文件&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;上述命令会将 source 目录的 markdown 文件转化为 html 文件然后和 source 目录的其他文件（如图片音乐文件）一并放于 public 目录下。&lt;/p&gt;
+&lt;p&gt;public 目录即是你的网站目录，你也可将 html 或 图片文件直接放在此目录。&lt;/p&gt;
+&lt;h3 id=&quot;四-部署至远程站点&quot;&gt;&lt;a href=&quot;#四-部署至远程站点&quot; class=&quot;headerlink&quot; title=&quot;四. 部署至远程站点&quot;&gt;&lt;/a&gt;四. 部署至远程站点&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;上述命令会将 public 目录上传至 GitHub 服务器。实际是 hexo 调用 &lt;code&gt;git push&lt;/code&gt; 命令将 public 目录下的文件提交至 &lt;code&gt;gh-pages&lt;/code&gt; 分支中。&lt;/p&gt;
+&lt;p&gt;步骤三和四可合并为 &lt;code&gt;$ hexo deploy -g&lt;/code&gt; 写好文章后只需用这一条命令即可发布至网站&lt;/p&gt;
+&lt;h3 id=&quot;GitHub-Pages-绑定域名方法&quot;&gt;&lt;a href=&quot;#GitHub-Pages-绑定域名方法&quot; class=&quot;headerlink&quot; title=&quot;GitHub Pages 绑定域名方法&quot;&gt;&lt;/a&gt;GitHub Pages 绑定域名方法&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;新建项目  &lt;code&gt;https://github.com/username/projectname&lt;/code&gt; ，并将 &lt;code&gt;gh-pages&lt;/code&gt; 设为默认分支&lt;/li&gt;
+&lt;li&gt;在上述 &lt;code&gt;gh-pages&lt;/code&gt; 分支中添加一个文件，文件名为 &lt;code&gt;CNAME&lt;/code&gt;，内容为你的域名 &lt;code&gt;blog.sample.com&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;在域名服务商处将 &lt;code&gt;blog.sample.com&lt;/code&gt; CNAME 至 &lt;code&gt;username.github.io&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;域名解析可能需要一定时间，等待即可&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;Hexo官方网站文档：&lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;GitHub Pages域名设置官方文档：  &lt;a href=&quot;https://help.github.com/articles/using-a-custom-domain-with-github-pages/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;using-a-custom-domain-with-github-pages&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;p&gt;GitHub Pages 提供了免费的空间让大家可以做静态站点，还能够绑定自己的域名，这么好的东西一定要试一下了。&lt;/p&gt;
+&lt;p&gt;Hexo 是一个基于 Node.js 的静态博客生成程序，你用 Markdown 语法写一些文章，然后它帮你转化为一个博客网站。安装 Hexo 前需先安装 Node.js 和 Git 。&lt;br&gt;具体的安装说明见官方文档。下面是发布文章的方法。&lt;/p&gt;
+&lt;h3 id=&quot;一-新建文章&quot;&gt;&lt;a href=&quot;#一-新建文章&quot; class=&quot;headerlink&quot; title=&quot;一. 新建文章&quot;&gt;&lt;/a&gt;一. 新建文章&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;或者手动在 &lt;code&gt;source/_posts&lt;/code&gt; 目录下新建一个 Markdown 文件开始写新文章。&lt;/p&gt;
     
     </summary>
     
@@ -479,7 +496,7 @@ connection.Plugin = Plugin;
     <link href="http://blog.tianqi.at/2014/10/25/asciimath-introduce/"/>
     <id>http://blog.tianqi.at/2014/10/25/asciimath-introduce/</id>
     <published>2014-10-25T08:36:48.000Z</published>
-    <updated>2016-03-24T13:46:54.000Z</updated>
+    <updated>2016-03-27T09:10:40.000Z</updated>
     
     <content type="html">
 在网页显示数学公式并不是十分容易，其实在其他地方比如word中插入公式也不是容易的事。
@@ -489,6 +506,8 @@ connection.Plugin = Plugin;
 但是使用LaTeX语法或MathML语法书写数学公式依然很复杂，查普曼大学数学系计算科学学院的Peter Jipsen教授为了和学生在网络交流方便发明了AsciiMath语法。
 
 &lt;h3&gt;下面我们来对比一下用各种语法书写 \( x = \frac {-b\pm \sqrt {b^{2}-4ac}} {2a} \) 这个公式：&lt;/h3&gt;
+
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 
 LaTeX语法 &lt;pre&gt; x = \frac {-b\pm \sqrt {b^{2}-4ac}} {2a}&lt;/pre&gt;
 MathML语法&lt;pre&gt;&amp;lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&amp;gt;
@@ -546,14 +565,18 @@ AsciiMath语法&lt;pre&gt; x = (-b +- sqrt(b^2-4ac))/(2a) &lt;/pre&gt;
 &lt;p&gt;为了输入方便，我在github上做了个在线ASCIIMath编辑器，初始版本非常简陋，欢迎试用 &lt;a href=&quot;http://likev.github.io/ASCIIMath/&quot; title=&quot;ASCIIMath在线编辑器&quot; target=&quot;_blank&quot;&gt;http://likev.github.io/ASCIIMath/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;完整语法详见：&lt;a href=&quot;http://www1.chapman.edu/~jipsen/mathml/asciimathsyntax.html&quot; title=&quot;asciimathsyntax.html&quot; target=&quot;_blank&quot;&gt;http://www1.chapman.edu/~jipsen/mathml/asciimathsyntax.html&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;</content>
+&lt;/div&gt;
+</content>
     
     <summary type="html">
     
-      
-在网页显示数学公式并不是十分容易，其实在其他地方比如word中插入公式也不是容易的事。
+      在网页显示数学公式并不是十分容易，其实在其他地方比如word中插入公式也不是容易的事。
 
-直到最近几年随着HTML5的普及和浏览器对MathML标准的支持，以及强大的MathJax( JavaScript display engine for LaTeX, MathML, an
+直到最近几年随着HTML5的普及和浏览器对MathML标准的支持，以及强大的MathJax( JavaScript display engine for LaTeX, MathML, and AsciiMath)的出现，才让数学公式在网页上书写和显示成为可能(使用图片不在讨论范围)。
+
+但是使用LaTeX语法或MathML语法书写数学公式依然很复杂，查普曼大学数学系计算科学学院的Peter Jipsen教授为了和学生在网络交流方便发明了AsciiMath语法。
+
+&lt;h3&gt;下面我们来对比一下用各种语法书写 \( x = \frac {-b\pm \sqrt {b^{2}-4ac}} {2a} \) 这个公式：&lt;/h3&gt;
     
     </summary>
     
@@ -565,13 +588,15 @@ AsciiMath语法&lt;pre&gt; x = (-b +- sqrt(b^2-4ac))/(2a) &lt;/pre&gt;
     <link href="http://blog.tianqi.at/2014/10/23/weather-forcast-equations/"/>
     <id>http://blog.tianqi.at/2014/10/23/weather-forcast-equations/</id>
     <published>2014-10-23T09:33:47.000Z</published>
-    <updated>2016-03-24T12:40:14.000Z</updated>
+    <updated>2016-03-27T09:09:18.000Z</updated>
     
     <content type="html">&lt;img width=&quot;403&quot; height=&quot;270&quot; class=&quot;attachment-post-thumbnail wp-post-image&quot; alt=&quot;History of the #math equations used in #weather forecasting &amp;amp; #climate models&quot; src=&quot;http://grow-wordpress.stor.sinaapp.com/uploads/2014/10/equations-since-1904.jpg&quot;&gt;
 &lt;div&gt;&lt;h3&gt;动量方程&lt;/h3&gt;
 \[ \frac{\text{d}u}{\text{d}t}- \left( f+u\frac{\tan\phi}{a} \right) \upsilon = -\frac{1}{a \cos\phi}\frac{1}{\rho}\frac{\partial p}{\partial \lambda}+F_{\lambda} \]
 \[ \frac{\text{d}\upsilon}{\text{d}t}+ \left(f+u\frac{\tan\phi}{a}\right)u = -\frac{1}{\rho a} \frac{\partial p}{\partial \phi}+F_{\phi} \]
 &lt;/div&gt;
+
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 
 &lt;div&gt;
 &lt;h3&gt;静力学平衡&lt;/h3&gt;
@@ -591,11 +616,16 @@ AsciiMath语法&lt;pre&gt; x = (-b +- sqrt(b^2-4ac))/(2a) &lt;/pre&gt;
 &lt;div&gt;
 &lt;h3&gt;理想气体状态方程&lt;/h3&gt;
 \[  p=\rho RT \]
-&lt;/div&gt;</content>
+&lt;/div&gt;
+</content>
     
     <summary type="html">
     
-      &lt;img width=&quot;403&quot; height=&quot;270&quot; class=&quot;attachment-post-thumbnail wp-post-image&quot; alt=&quot;History of the #math equations used in #weather forecasti
+      &lt;img width=&quot;403&quot; height=&quot;270&quot; class=&quot;attachment-post-thumbnail wp-post-image&quot; alt=&quot;History of the #math equations used in #weather forecasting &amp;amp; #climate models&quot; src=&quot;http://grow-wordpress.stor.sinaapp.com/uploads/2014/10/equations-since-1904.jpg&quot;&gt;
+&lt;div&gt;&lt;h3&gt;动量方程&lt;/h3&gt;
+\[ \frac{\text{d}u}{\text{d}t}- \left( f+u\frac{\tan\phi}{a} \right) \upsilon = -\frac{1}{a \cos\phi}\frac{1}{\rho}\frac{\partial p}{\partial \lambda}+F_{\lambda} \]
+\[ \frac{\text{d}\upsilon}{\text{d}t}+ \left(f+u\frac{\tan\phi}{a}\right)u = -\frac{1}{\rho a} \frac{\partial p}{\partial \phi}+F_{\phi} \]
+&lt;/div&gt;
     
     </summary>
     
@@ -783,16 +813,18 @@ bzip2
     <link href="http://blog.tianqi.at/2013/01/09/bing-background-image-api/"/>
     <id>http://blog.tianqi.at/2013/01/09/bing-background-image-api/</id>
     <published>2013-01-09T09:32:19.000Z</published>
-    <updated>2016-03-24T13:02:02.000Z</updated>
+    <updated>2016-03-27T09:12:08.000Z</updated>
     
     <content type="html">&lt;p&gt;做了一个简单的API，可调用必应首页背景图片。&lt;br&gt;使用方法非常简单，只需将图片地址指向 &lt;a href=&quot;http://area.sinaapp.com/bingImg&quot; title=&quot;http://area.sinaapp.com/bingImg&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://area.sinaapp.com/bingImg&lt;/a&gt; 即可。&lt;br&gt;使用下面的CSS代码可以让自己的网页背景图片每天自动更换&lt;/p&gt;
 &lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;body&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;background-image&lt;/span&gt;: &lt;span class=&quot;built_in&quot;&gt;url&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;http://area.sinaapp.com/bingImg&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;可使用daysAgo参数调用之前的图片，&lt;a href=&quot;http://area.sinaapp.com/bingImg?daysAgo=2&quot; title=&quot;http://area.sinaapp.com/bingImg?daysAgo=2&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://area.sinaapp.com/bingImg?daysAgo=2&lt;/a&gt; 将调用2天前的背景图。&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;做了一个简单的API，可调用必应首页背景图片。&lt;br&gt;使用方法非常简单，只需将图片地址指向 &lt;a href=&quot;http://area.sinaapp.com/bingImg&quot; title=&quot;http://area.sinaapp.com/bingImg&quot; target=&quot;_
+      &lt;p&gt;做了一个简单的API，可调用必应首页背景图片。&lt;br&gt;使用方法非常简单，只需将图片地址指向 &lt;a href=&quot;http://area.sinaapp.com/bingImg&quot; title=&quot;http://area.sinaapp.com/bingImg&quot;&gt;http://area.sinaapp.com/bingImg&lt;/a&gt; 即可。&lt;br&gt;使用下面的CSS代码可以让自己的网页背景图片每天自动更换&lt;/p&gt;
+&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;body&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;background-image&lt;/span&gt;: &lt;span class=&quot;built_in&quot;&gt;url&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;http://area.sinaapp.com/bingImg&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
