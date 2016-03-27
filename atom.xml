@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.tianqi.at/"/>
-  <updated>2016-03-27T14:24:12.000Z</updated>
+  <updated>2016-03-27T14:26:02.000Z</updated>
   <id>http://blog.tianqi.at/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.tianqi.at/2016/03/27/git-command-lists/"/>
     <id>http://blog.tianqi.at/2016/03/27/git-command-lists/</id>
     <published>2016-03-27T14:02:03.000Z</published>
-    <updated>2016-03-27T14:24:12.000Z</updated>
+    <updated>2016-03-27T14:26:02.000Z</updated>
     
     <content type="html">&lt;p&gt;我每天使用 Git ，但是很多命令记不住。&lt;/p&gt;
 &lt;p&gt;一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。&lt;/p&gt;
@@ -32,6 +32,7 @@
 &lt;li&gt;Repository：仓库区（或本地仓库）&lt;/li&gt;
 &lt;li&gt;Remote：远程仓库&lt;/li&gt;
 &lt;/ul&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h2 id=&quot;一、新建代码库&quot;&gt;&lt;a href=&quot;#一、新建代码库&quot; class=&quot;headerlink&quot; title=&quot;一、新建代码库&quot;&gt;&lt;/a&gt;一、新建代码库&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 在当前目录新建一个Git代码库&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ git init&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 新建一个目录，将其初始化为Git代码库&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ git init [project-name]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 下载一个项目和它的整个代码历史&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ git &lt;span class=&quot;built_in&quot;&gt;clone&lt;/span&gt; [url]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;二、配置&quot;&gt;&lt;a href=&quot;#二、配置&quot; class=&quot;headerlink&quot; title=&quot;二、配置&quot;&gt;&lt;/a&gt;二、配置&lt;/h2&gt;&lt;p&gt;Git的设置文件为&lt;code&gt;.gitconfig&lt;/code&gt;，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。&lt;/p&gt;
 &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 显示当前的Git配置&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ git config --list&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 编辑Git配置文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ git config &lt;span class=&quot;_&quot;&gt;-e&lt;/span&gt; [--global]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 设置提交代码时的用户信息&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ git config [--global] user.name &lt;span class=&quot;string&quot;&gt;&quot;[name]&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ git config [--global] user.email &lt;span class=&quot;string&quot;&gt;&quot;[email address]&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -52,7 +53,14 @@
     
       &lt;p&gt;我每天使用 Git ，但是很多命令记不住。&lt;/p&gt;
 &lt;p&gt;一般来说，日常使用只要记住下图6个命令，就可以了。但是熟练使用，恐怕要记住60～100个命令。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/images/git-bg2015120901.png&quot; width=&quot;100%&quot;&gt;
+&lt;p&gt;&lt;img src=&quot;/images/git-bg2015120901.png&quot; width=&quot;100%&quot;/&gt;&lt;/p&gt;
+&lt;p&gt;下面是我整理的常用 Git 命令清单。几个专用名词的译名如下。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Workspace：工作区&lt;/li&gt;
+&lt;li&gt;Index / Stage：暂存区&lt;/li&gt;
+&lt;li&gt;Repository：仓库区（或本地仓库）&lt;/li&gt;
+&lt;li&gt;Remote：远程仓库&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
