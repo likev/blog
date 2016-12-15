@@ -211,7 +211,7 @@
     <link href="http://blog.tianqi.at/2015/11/04/Junkware-and-Malware-Removal-Tool/"/>
     <id>http://blog.tianqi.at/2015/11/04/Junkware-and-Malware-Removal-Tool/</id>
     <published>2015-11-04T02:09:58.000Z</published>
-    <updated>2016-12-15T15:56:28.000Z</updated>
+    <updated>2016-12-15T16:23:44.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;病毒木马等恶意软件移除：&quot;&gt;&lt;a href=&quot;#病毒木马等恶意软件移除：&quot; class=&quot;headerlink&quot; title=&quot;病毒木马等恶意软件移除：&quot;&gt;&lt;/a&gt;病毒木马等恶意软件移除：&lt;/h2&gt;&lt;h4 id=&quot;1-Malwarebytes-Anti-Malware-可与现有杀毒软件和谐共存，查杀恶意程序。-https-www-malwarebytes-org&quot;&gt;&lt;a href=&quot;#1-Malwarebytes-Anti-Malware-可与现有杀毒软件和谐共存，查杀恶意程序。-https-www-malwarebytes-org&quot; class=&quot;headerlink&quot; title=&quot;1. Malwarebytes Anti-Malware 可与现有杀毒软件和谐共存，查杀恶意程序。 https://www.malwarebytes.org/&quot;&gt;&lt;/a&gt;1. Malwarebytes Anti-Malware 可与现有杀毒软件和谐共存，查杀恶意程序。 &lt;a href=&quot;https://www.malwarebytes.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.malwarebytes.org/&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Malwarebytes Anti-Malware’s industry-leading scanner detects and removes worms, Trojans, rootkits, rogues, spyware, and other dangerous malware from your home PC.&lt;/p&gt;
 &lt;p&gt;具维基百科介绍（&lt;a href=&quot;https://en.wikipedia.org/wiki/Malwarebytes），这个公司现任&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://en.wikipedia.org/wiki/Malwarebytes），这个公司现任&lt;/a&gt; CEO Marcin Kleczynski 在 14 岁时就写出了这个工具的最初版本。&lt;/p&gt;
@@ -223,8 +223,9 @@
 &lt;li&gt;Adware (ads softwares)&lt;/li&gt;
 &lt;li&gt;PUP/LPI (Potentially Undesirable Program)&lt;/li&gt;
 &lt;li&gt;Toolbars&lt;/li&gt;
-&lt;li&gt;Hijacker (Hijack of the browser’s homepage)&lt;br&gt;Malwarebytes 已经把这个工具收购了 &lt;a href=&quot;https://blog.malwarebytes.com/malwarebytes-news/2016/10/malwarebytes-acquires-adwcleaner/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://blog.malwarebytes.com/malwarebytes-news/2016/10/malwarebytes-acquires-adwcleaner/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Hijacker (Hijack of the browser’s homepage)&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;Malwarebytes 已经把这个工具收购了 &lt;a href=&quot;https://blog.malwarebytes.com/malwarebytes-news/2016/10/malwarebytes-acquires-adwcleaner/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://blog.malwarebytes.com/malwarebytes-news/2016/10/malwarebytes-acquires-adwcleaner/&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id=&quot;5-Junkware-Removal-Tool-https-www-malwarebytes-com-junkwareremovaltool&quot;&gt;&lt;a href=&quot;#5-Junkware-Removal-Tool-https-www-malwarebytes-com-junkwareremovaltool&quot; class=&quot;headerlink&quot; title=&quot;5. Junkware Removal Tool https://www.malwarebytes.com/junkwareremovaltool/&quot;&gt;&lt;/a&gt;5. Junkware Removal Tool &lt;a href=&quot;https://www.malwarebytes.com/junkwareremovaltool/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.malwarebytes.com/junkwareremovaltool/&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;Junkware Removal Tool is a security utility that searches for and removes common adware, toolbars, and potentially unwanted programs (PUPs) from your computer. A common tactics among freeware publishers is to offer their products for free, but bundle them with PUPs in order to earn revenue. This tool will help you remove these types of programs from your computer.&lt;/p&gt;
 &lt;p&gt;Malwarebytes 已经把这个工具收购了 &lt;a href=&quot;https://blog.malwarebytes.com/malwarebytes-news/2015/06/malwarebytes-acquires-junkware-removal-tool/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://blog.malwarebytes.com/malwarebytes-news/2015/06/malwarebytes-acquires-junkware-removal-tool/&lt;/a&gt; &lt;/p&gt;
 &lt;p&gt;它也帮我清除了腾讯电脑管家和360助手均无法解决的浏览器主页劫持恶意程序。&lt;/p&gt;
