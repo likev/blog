@@ -9,7 +9,7 @@
 <p>上述命令会将 source 目录的 markdown 文件转化为 html 文件然后和 source 目录的其他文件（如图片音乐文件）一并放于 public 目录下。</p>
 <p>public 目录即是你的网站目录，你也可将 html 或 图片文件直接放在此目录。</p>
 <h3 id="四-部署至远程站点"><a href="#四-部署至远程站点" class="headerlink" title="四. 部署至远程站点"></a>四. 部署至远程站点</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>上述命令会将 public 目录上传至 GitHub 服务器。实际是 hexo 调用 <code>git push</code> 命令将 public 目录下的文件提交至 <code>gh-pages</code> 分支中。</p>
+<p>上述命令会将 public 目录上传至 GitHub 服务器。实际是 Hexo 将 public 目录复制到 .deploy_git 目录，然后调用 <code>git push</code> 命令将 .deploy_git 目录下的文件提交至 <code>gh-pages</code> 分支中。</p>
 <p>步骤三和四可合并为 <code>$ hexo deploy -g</code> 写好文章后只需用这一条命令即可发布至网站</p>
 <h3 id="GitHub-Pages-绑定域名方法"><a href="#GitHub-Pages-绑定域名方法" class="headerlink" title="GitHub Pages 绑定域名方法"></a>GitHub Pages 绑定域名方法</h3><ol>
 <li>新建项目  <code>https://github.com/username/projectname</code> ，并将 <code>gh-pages</code> 设为默认分支</li>

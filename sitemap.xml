@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.tianqitu.net/2016/03/27/make-free-blog-site-use-Hexo-and-Github/</loc>
+    
+    <lastmod>2016-12-19T15:08:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.tianqitu.net/2015/11/04/Junkware-and-Malware-Removal-Tool/</loc>
     
     <lastmod>2016-12-19T15:00:28.000Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://blog.tianqitu.net/2016/03/27/git-command-lists/</loc>
     
     <lastmod>2016-03-27T14:26:02.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.tianqitu.net/2016/03/27/make-free-blog-site-use-Hexo-and-Github/</loc>
-    
-    <lastmod>2016-03-27T11:08:56.000Z</lastmod>
     
   </url>
   
