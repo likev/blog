@@ -1,0 +1,35 @@
+---
+title: DOM结构以及HTML中的基本元素
+tags:
+  - document
+  - DOM
+  - html
+  - 基本属性
+id: 570
+categories:
+  - html
+date: 2011-03-02 15:18:30
+---
+
+<h3>DOM的基本结构：</h3>
+<p><img src="/images/ct_htmltree.gif" alt="DOM树"></p>
+<p>几点说明:<br>1.DOM的根节点是Document文档，每个载入浏览器的 HTML 文档都会成为 Document 对象,window.document代表了这个对象，也可以用所有基本元素节点的ownerDocument属性获取这个对象。<br>2.html节点是第二级节点，包含了head和body两个元素节点。</p>
+
+<section>
+<h3>HTML中基本元素拥有的属性(W3C: W3C Standard.)</h3>
+
+<table><tbody><tr><th width="28%" align="left">Property</th><th width="65%" align="left">Description</th><th width="7%" align="left">W3C</th></tr><tr><td>attributes[]</td><td>获取一个元素的所有属性组成的数组</td><td>Yes</td></tr><tr><td>childNodes[]</td><td>获取一个元素的所有子节点组成的数组</td><td>Yes</td></tr><tr><td><a href="prop_html_accesskey.asp">accessKey</a></td><td>设置或获取一个元素的快捷键</td><td>Yes</td></tr><tr><td><a href="prop_html_classname.asp">className</a></td><td>Sets or returns the class attribute of an element</td><td>Yes</td></tr><tr><td>clientHeight</td><td>Returns the viewable height of the content on a page (not includingborders, margins, or scrollbars)</td><td>Yes</td></tr><tr><td>clientWidth</td><td>Returns the viewable width of the content on a page (not includingborders, margins, or scrollbars)</td><td>Yes</td></tr><tr><td><a href="prop_html_dir.asp">dir</a></td><td>Sets or returns the text direction of an element</td><td>Yes</td></tr><tr><td><a href="prop_html_disabled.asp">disabled</a></td><td>Sets or returns whether an element is disabled, or not</td><td>Yes</td></tr><tr><td>firstChild</td><td>Returns the first child of an element</td><td>Yes</td></tr><tr><td>height</td><td>设置或获取元素的高度属性</td><td>Yes</td></tr><tr><td><a href="prop_html_id.asp">id</a></td><td>Sets or returns the id of an element</td><td>Yes</td></tr><tr><td><a href="prop_html_innerhtml.asp">innerHTML</a></td><td>Sets or returns the HTML contents (+text) of an element</td><td>Yes</td></tr><tr><td><a href="prop_html_lang.asp">lang</a></td><td>Sets or returns the language code for an element</td><td>Yes</td></tr><tr><td>lastChild</td><td>获取一个元素的最后一个子元素</td><td>Yes</td></tr><tr><td>length</td><td></td><td>Yes</td></tr><tr><td>nextSibling</td><td>获取紧邻元素之后的元素</td><td>Yes</td></tr><tr><td>nodeName</td><td>获取元素的节点名称 (以大写方式)</td><td>Yes</td></tr><tr><td>nodeType</td><td>获取元素的节点类型</td><td>Yes</td></tr><tr><td>nodeValue</td><td>获取元素的值</td><td>Yes</td></tr><tr><td>offsetHeight</td><td>Returns the height of an element, including borders and padding if any,but not margins</td><td>No</td></tr><tr><td>offsetLeft</td><td>Returns the horizontal offset position of the current element relativeto its offset container</td><td>Yes</td></tr><tr><td>offsetParent</td><td>Returns the offset container of an element</td><td>Yes</td></tr><tr><td>offsetTop</td><td>Returns the vertical offset position of the current element relative toits offset container</td><td>Yes</td></tr><tr><td>offsetWidth</td><td>获取一个元素的宽度，包括补白和边框，不包括边界</td><td>No</td></tr><tr><td>ownerDocument</td><td>获取一个元素所属的根文档(Document对象)</td><td>Yes</td></tr><tr><td>parentNode</td><td>获取一个元素的父节点</td><td>Yes</td></tr><tr><td>previousSibling</td><td>获取紧邻元素之前的元素</td><td>Yes</td></tr><tr><td>scrollHeight</td><td>获取元素的整体高度(包括滚动条)</td><td>Yes</td></tr><tr><td>scrollLeft</td><td>Returns the distance between the actual left edge of an element and itsleft edge currently in view</td><td>Yes</td></tr><tr><td>scrollTop</td><td>Returns the distance between the actual top edge of an element and itstop edge currently in view</td><td>Yes</td></tr><tr><td>scrollWidth</td><td>获取元素的整体宽度(包括滚动条)</td><td>Yes</td></tr><tr><td>style</td><td>设置或获取元素的样式属性</td><td>Yes</td></tr><tr><td><a href="prop_html_tabindex.asp">tabIndex</a></td><td>设置或获取元素的TAB顺序</td><td>Yes</td></tr><tr><td>tagName</td><td>以大写字符串的方式获取元素的标签名</td><td>Yes</td></tr><tr><td><a href="prop_html_title.asp">title</a></td><td>设置或获取元素的标题属性</td><td>Yes</td></tr><tr><td>width</td><td>设置或获取元素的宽度属性</td><td>Yes</td></tr></tbody></table>
+</section>
+
+<section>
+<h3>html中基本元素拥有的方法：</h3>
+<table>
+<tbody>
+<tr><th width="28%" align="left">Method</th><th width="65%" align="left">Description</th><th width="7%" align="left">W3C</th></tr>
+<tr><td>appendChild()</td><td>在子元素列表后面增加一个新的元素</td><td>Yes</td></tr><tr><td><a href="met_html_blur.asp">blur()</a></td><td>从一个元素上移除焦点</td><td>Yes</td></tr><tr><td><a href="met_html_click.asp">click()</a></td><td>在一个元素上执行点击操作</td><td>Yes</td></tr><tr><td>cloneNode()</td><td>复制元素</td><td>Yes</td></tr><tr><td><a href="met_html_focus.asp">focus()</a></td><td>让一个元素成为焦点</td><td>Yes</td></tr><tr><td>getAttribute()</td><td>Returns the value of an attribute</td><td>Yes</td></tr><tr><td><a href="met_doc_getelementsbytagname.asp">getElementsByTagName()</a></td><td>根据指定的标签名获取所有元素</td><td>Yes</td></tr><tr><td>hasChildNodes()</td><td>返回一个元素是否有子元素</td><td>Yes</td></tr><tr><td>insertBefore()</td><td>在现存的子元素前插入一个新的子元素</td><td>Yes</td></tr><tr><td>item()</td><td>基于文档树的位置返回一个元素</td><td>Yes</td></tr><tr><td>normalize()</td><td>Puts all text nodes underneath this element (including attributes) intoa “normal” form where only structure (e.g., elements, comments, processinginstructions, CDATA sections, and entity references) separates Text nodes,i.e., there are neither adjacent Text nodes nor empty Text nodes</td><td>Yes</td></tr><tr><td>removeAttribute()</td><td>从元素中移除指定的属性</td><td>Yes</td></tr><tr><td>removeChild()</td><td>移除一个子元素</td><td>Yes</td></tr>
+<tr><td>replaceChild()</td><td>替换一个子元素</td><td>Yes</td></tr>
+<tr><td>setAttribute()</td><td>为元素增加新的属性</td><td>Yes</td></tr>
+<tr><td>toString()</td><td>将一个元素转化为字符串</td><td>Yes</td></tr>
+</tbody>
+</table>
+</section>
